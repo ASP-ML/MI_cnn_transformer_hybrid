@@ -4,10 +4,11 @@ data/*
 logs/
 
 models/*
+# Solo trackear notebooks, no archivos generados
 !models/04_hybrid/
-!models/04_hybrid/** 
+!models/04_hybrid/cnntransformer2c.ipynb
 !models/05_brainbit/
-
+!models/05_brainbit/brainbit.ipynb
 
 node_modules/
 
@@ -18,3 +19,20 @@ reports/
 # ignorar checkpoints grandes
 *.fif
 *.edf
+
+# Archivos generados (graficos, pesos, metricas)
+*.png
+*.pdf
+*.jpg
+*.jpeg
+*.svg
+*.pth
+*.pt
+*.npz
+*.npy
+*.csv
+*.txt
+
+# Claude Code
+.claude/
+CLAUDE.md

@@ -1,0 +1,20 @@
+{
+  "params_total": 352738,
+  "params_trainable": 352738,
+  "flops_est": 5419296,
+  "latency_s": 0.0012784767150878906,
+  "L": 31,
+  "d": 144,
+  "n_heads": 4,
+  "n_layers": 1,
+  "run_tag": "nb4_h4",
+  "fold": 2,
+  "val_best_acc": 0.7968253968253968,
+  "val_best_f1": 0.7966594045025417,
+  "tr_at_best_acc": 0.8781094527363185,
+  "tr_at_best_f1": 0.8779874030977128,
+  "train_time_s": 12.942537546157837,
+  "train_mem_mb": 3094.517578125,
+  "test_time_s": 9.45555329322815,
+  "test_mem_mb": 73.7685546875
+}

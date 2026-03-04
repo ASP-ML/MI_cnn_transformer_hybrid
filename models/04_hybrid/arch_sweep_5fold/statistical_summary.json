@@ -1,0 +1,8 @@
+{
+  "baseline_arch": "nb2_h6",
+  "baseline_mean_f1": 0.822108517504088,
+  "n_architectures_tested": 9,
+  "n_significant_vs_baseline": 0,
+  "friedman_statistic": 14.410684474123558,
+  "friedman_p_value": 0.07166939123923102,
+  "friedman_significant": 
