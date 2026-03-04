@@ -1,2 +1,0 @@
-model_tag,n_params,params_M,flops_G,latency_ms,train_time_mean_s,train_time_std_s,train_mem_mean_mb,train_mem_std_mb,test_time_mean_s,test_time_std_s,test_mem_mean_mb,test_mem_std_mb
-winner_nb2_h6_lr1e-03_do0.2_el1,232290,0.23229,0.024289056,1.1713504791259766,21.321205806732177,6.8298060758925665,3249.61376953125,11.546619640618724,0.010340213775634766,0.00044005172329549387,1075.70693359375,34.877092379898535
