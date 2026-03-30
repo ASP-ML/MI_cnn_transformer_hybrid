@@ -1,38 +1,50 @@
-# Ignorar datasets pesados
-data/*
-
-logs/
-
-models/*
-# Solo trackear notebooks, no archivos generados
-!models/04_hybrid/
-!models/04_hybrid/cnntransformer2c.ipynb
-!models/05_brainbit/
-!models/05_brainbit/brainbit.ipynb
-
-node_modules/
-
-
-notebooks/
-
-reports/
-# ignorar checkpoints grandes
-*.fif
-*.edf
-
-# Archivos generados (graficos, pesos, metricas)
-*.png
-*.pdf
-*.jpg
-*.jpeg
-*.svg
-*.pth
-*.pt
-*.npz
-*.npy
-*.csv
-*.txt
+# Virtual environment
+.venv/
 
 # Claude Code
 .claude/
 CLAUDE.md
+
+# Misc
+node_modules/
+notebooks/
+reports/
+logs/
+
+# Archivos EEG crudos
+*.fif
+*.edf
+
+# ---- DATA: solo estructura de carpetas ----
+data/**
+!data/.gitkeep
+!data/raw/
+!data/raw/.gitkeep
+
+# ---- MODELS ----
+models/*
+
+# 00_folds: mostrar carpeta completa
+!models/00_folds/
+!models/00_folds/**
+
+# 04_hybrid: solo cnntransformer2c.ipynb y ModeloW
+!models/04_hybrid/
+models/04_hybrid/*
+!models/04_hybrid/cnntransformer2c.ipynb
+!models/04_hybrid/ModeloW/
+
+# ModeloW/nb2_h6: archivos globales finales (png, pdf, csv)
+models/04_hybrid/ModeloW/*
+!models/04_hybrid/ModeloW/nb2_h6/
+models/04_hybrid/ModeloW/nb2_h6/*
+!models/04_hybrid/ModeloW/nb2_h6/*.png
+!models/04_hybrid/ModeloW/nb2_h6/*.pdf
+!models/04_hybrid/ModeloW/nb2_h6/*.csv
+
+# ModeloW folds: solo consumption reports
+!models/04_hybrid/ModeloW/nb2_h6/nb2_h6/
+models/04_hybrid/ModeloW/nb2_h6/nb2_h6/*
+!models/04_hybrid/ModeloW/nb2_h6/nb2_h6/fold*/
+models/04_hybrid/ModeloW/nb2_h6/nb2_h6/fold*/*
+!models/04_hybrid/ModeloW/nb2_h6/nb2_h6/fold*/consumption_*.json
