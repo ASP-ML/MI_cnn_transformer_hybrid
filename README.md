@@ -60,29 +60,29 @@ EEG_Clasificador/
 
 ### 1. Convolutional Backbone
 
-| Component | Details |
-|---|---|
-| Stem convolution | `Conv1d` with 129 kernels spanning the full temporal receptive field |
+| Component          | Details                                                                    |
+| ------------------ | -------------------------------------------------------------------------- |
+| Stem convolution   | `Conv1d` with 129 kernels spanning the full temporal receptive field       |
 | Feature extraction | Depthwise-separable convolutions for parameter-efficient spatial filtering |
-| Normalization | `GroupNorm` after each convolutional block |
-| Activation | ELU (Exponential Linear Unit) |
+| Normalization      | `GroupNorm` after each convolutional block                                 |
+| Activation         | ELU (Exponential Linear Unit)                                              |
 
 ### 2. Transformer Encoder
 
-| Component | Details |
-|---|---|
-| Self-attention | Multi-head attention (`n_heads = 6`, `d_model = 144`) |
-| Positional encoding | Sinusoidal (fixed, not learned) |
-| Classification token | Learnable CLS token prepended to the sequence |
-| Feed-forward activation | GELU |
-| Depth | Single encoder layer (`n_layers = 1`) |
+| Component               | Details                                               |
+| ----------------------- | ----------------------------------------------------- |
+| Self-attention          | Multi-head attention (`n_heads = 6`, `d_model = 144`) |
+| Positional encoding     | Sinusoidal (fixed, not learned)                       |
+| Classification token    | Learnable CLS token prepended to the sequence         |
+| Feed-forward activation | GELU                                                  |
+| Depth                   | Single encoder layer (`n_layers = 1`)                 |
 
 ### 3. Classification Head
 
-| Component | Details |
-|---|---|
-| Pre-normalization | `LayerNorm` on CLS token output |
-| Projection | Linear layer mapping to 2 output classes |
+| Component         | Details                                  |
+| ----------------- | ---------------------------------------- |
+| Pre-normalization | `LayerNorm` on CLS token output          |
+| Projection        | Linear layer mapping to 2 output classes |
 
 **Total trainable parameters:** ~90 K (lightweight by design for BCI deployment feasibility).
 
@@ -105,11 +105,11 @@ Eight electrodes over the primary motor and supplementary motor areas:
 
 ### Preprocessing Pipeline
 
-| Step | Details |
-|---|---|
-| Notch filter | 60 Hz line-noise removal |
-| Epoching | -1.0 s to +5.0 s relative to event onset (6 s window, 960 samples) |
-| Normalization | Channel-wise z-score using training-set statistics only |
+| Step              | Details                                                                      |
+| ----------------- | ---------------------------------------------------------------------------- |
+| Notch filter      | 60 Hz line-noise removal                                                     |
+| Epoching          | -1.0 s to +5.0 s relative to event onset (6 s window, 960 samples)           |
+| Normalization     | Channel-wise z-score using training-set statistics only                      |
 | Data augmentation | Temporal jitter (35%), Gaussian noise injection (35%), channel dropout (15%) |
 
 ---
@@ -118,24 +118,24 @@ Eight electrodes over the primary motor and supplementary motor areas:
 
 ### Optimization
 
-| Parameter | Value |
-|---|---|
-| Optimizer | AdamW (weight decay = 1e-2) |
-| Base learning rate | 5e-4 |
-| LR schedule | Cosine annealing with linear warmup (4 epochs) |
-| Loss function | Focal Loss (gamma = 1.5) |
-| Batch size | 64 |
-| Max epochs | 60 |
-| Early stopping | Patience = 8 epochs on validation loss |
-| Class balancing | `WeightedRandomSampler` per training fold |
+| Parameter          | Value                                          |
+| ------------------ | ---------------------------------------------- |
+| Optimizer          | AdamW (weight decay = 1e-2)                    |
+| Base learning rate | 5e-4                                           |
+| LR schedule        | Cosine annealing with linear warmup (4 epochs) |
+| Loss function      | Focal Loss (gamma = 1.5)                       |
+| Batch size         | 64                                             |
+| Max epochs         | 60                                             |
+| Early stopping     | Patience = 8 epochs on validation loss         |
+| Class balancing    | `WeightedRandomSampler` per training fold      |
 
 ### Regularization and Ensembling
 
-| Technique | Details |
-|---|---|
-| Dropout | 0.2 (applied to attention and feed-forward layers) |
-| EMA | Exponential Moving Average of weights (decay = 0.9995) |
-| TTA | Test-Time Augmentation via temporal shifts at inference |
+| Technique | Details                                                 |
+| --------- | ------------------------------------------------------- |
+| Dropout   | 0.2 (applied to attention and feed-forward layers)      |
+| EMA       | Exponential Moving Average of weights (decay = 0.9995)  |
+| TTA       | Test-Time Augmentation via temporal shifts at inference |
 
 ### Subject-Specific Fine-Tuning (Two-Stage)
 
@@ -152,12 +152,12 @@ A strict **5-fold subject-wise split** ensures that no subject appears in both t
 
 ### Metrics
 
-| Metric | Scope |
-|---|---|
-| Accuracy | Per-fold and mean across folds |
-| F1-score | Macro and weighted averages |
-| Precision / Recall | Per-class and macro |
-| Confusion matrix | Per-fold and global (aggregated across all folds) |
+| Metric             | Scope                                             |
+| ------------------ | ------------------------------------------------- |
+| Accuracy           | Per-fold and mean across folds                    |
+| F1-score           | Macro and weighted averages                       |
+| Precision / Recall | Per-class and macro                               |
+| Confusion matrix   | Per-fold and global (aggregated across all folds) |
 
 ### Interpretability Analyses
 
@@ -190,16 +190,16 @@ pip install -r requirements.txt
 
 ### Dependencies
 
-| Package | Version | Purpose |
-|---|---|---|
-| PyTorch | >= 2.0 | Deep learning framework |
-| MNE | >= 1.5 | EEG signal processing and PhysioNet data access |
-| scikit-learn | >= 1.3 | Metrics, cross-validation utilities |
-| NumPy | >= 1.24 | Numerical computation |
-| SciPy | >= 1.10 | Statistical analysis |
-| matplotlib | >= 3.7 | Visualization |
-| pandas | >= 2.0 | Tabular data handling |
-| tqdm | >= 4.66 | Progress bars |
+| Package      | Version | Purpose                                         |
+| ------------ | ------- | ----------------------------------------------- |
+| PyTorch      | >= 2.0  | Deep learning framework                         |
+| MNE          | >= 1.5  | EEG signal processing and PhysioNet data access |
+| scikit-learn | >= 1.3  | Metrics, cross-validation utilities             |
+| NumPy        | >= 1.24 | Numerical computation                           |
+| SciPy        | >= 1.10 | Statistical analysis                            |
+| matplotlib   | >= 3.7  | Visualization                                   |
+| pandas       | >= 2.0  | Tabular data handling                           |
+| tqdm         | >= 4.66 | Progress bars                                   |
 
 ---
 
@@ -270,13 +270,8 @@ If you use this code, models, or methodology in your research, please cite:
 ```
 
 **APA format:**
-> Cuascota, J. A. (2025). Classification of motor imagery EEG signals using a lightweight CNN-Transformer hybrid architecture. *IEEE Transactions on Neural Systems and Rehabilitation Engineering*. Submitted. https://github.com/JACS002/EEG_Clasificador
 
----
-
-## References
-
-[1] G. Schalk, D. J. McFarland, T. Hinterberger, N. Birbaumer, and J. R. Wolpaw, "BCI2000: A general-purpose brain-computer interface (BCI) system," *IEEE Trans. Biomed. Eng.*, vol. 51, no. 6, pp. 1034-1043, Jun. 2004.
+> Cuascota, J. A. (2025). Classification of motor imagery EEG signals using a lightweight CNN-Transformer hybrid architecture. _IEEE Transactions on Neural Systems and Rehabilitation Engineering_. Submitted. https://github.com/JACS002/EEG_Clasificador
 
 ---
 
