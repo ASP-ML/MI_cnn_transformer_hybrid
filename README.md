@@ -267,4 +267,4 @@ If you use this code, models, or methodology in your research, please cite:
 
 This project is released under the [MIT License](LICENSE).
 
-Copyright (c) 2025 Joel A. Cuascota
+Copyright (c) 2025 Cuascota et al.
