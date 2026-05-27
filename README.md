@@ -259,7 +259,7 @@ If you use this code, models, or methodology in your research, please cite:
 
 **APA format:**
 
-> Cuascota, J. A. (2025). Classification of motor imagery EEG signals using a lightweight CNN-Transformer hybrid architecture. _IEEE Transactions on Neural Systems and Rehabilitation Engineering_. Submitted. https://github.com/JACS002/EEG_Clasificador
+
 
 ---
 
