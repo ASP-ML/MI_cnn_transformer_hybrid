@@ -178,7 +178,7 @@ A strict **5-fold subject-wise split** ensures that no subject appears in both t
 ### Setup
 
 ```bash
-git clone https://github.com/JACS002/EEG_Clasificador.git
+git clone https://github.com/ASP-ML/MI_cnn_transformer_hybrid/tree/main.git
 cd EEG_Clasificador
 pip install -r requirements.txt
 ```
