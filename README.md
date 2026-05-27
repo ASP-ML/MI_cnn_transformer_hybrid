@@ -1,10 +1,5 @@
 # Classification of Motor Imagery EEG Signals Using a Lightweight CNN-Transformer Hybrid Architecture
 
-> **J. A. Cuascota**
-> Department of Computer Science and Engineering, Universidad San Francisco de Quito (USFQ), Quito, Ecuador
-
-This repository contains the source code, trained model artifacts, and evaluation pipeline accompanying the manuscript submitted to **IEEE Transactions on Neural Systems and Rehabilitation Engineering (TNSRE)**.
-
 ---
 
 ## Abstract
