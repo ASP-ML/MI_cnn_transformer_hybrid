@@ -254,14 +254,7 @@ Fold partitions, hyperparameters, and augmentation seeds are fixed. Raw data is 
 If you use this code, models, or methodology in your research, please cite:
 
 ```bibtex
-@article{cuascota2025eegcnntransformer,
-  author  = {Cuascota, Joel A.},
-  title   = {Classification of Motor Imagery {EEG} Signals Using a Lightweight
-             {CNN}-Transformer Hybrid Architecture},
-  journal = {IEEE Transactions on Neural Systems and Rehabilitation Engineering},
-  year    = {2025},
-  note    = {Submitted. Code available at \url{https://github.com/JACS002/EEG_Clasificador}}
-}
+
 ```
 
 **APA format:**
